@@ -17,7 +17,7 @@
         //堆是一个完全二叉树，通常使用数组来表示
         //数组中位于[0, size)之间的元素是属于堆中的元素
         //index表示从哪个下标出发进行调整
-        public void shiftDown(int[] array,int size, int index){
+        public void siftDown(int[] array,int size, int index){
             int parent = index;
         	//根据父节点的下边找到左子树的根节点的下标
             int child = 2 * parent + 1;
@@ -63,7 +63,7 @@
                 //size -1 得到的是最后一个元素的下标
                 //(size -1 -1) / 2得到的是最后一个元素的父节点的下标
                 for(int i = (size - 1 - 1) / 2; i >= 0; i--){
-                    shiftDown(array, size, i);
+                    shitDown(array, size, i);
                 }
             }
             ```
@@ -92,9 +92,9 @@
             //array表示用来承载元素的数组
             //size表示数组中有效元素的个数
             //size - 1表示从那个下标开始进行向上调整 
-            shiftUp(array, size, size - 1);
+            siftUp(array, size, size - 1);
         }
-        public void shiftUp(int[] array, int size, int index){
+        public void siftUp(int[] array, int size, int index){
             int child = index;
             int parent = (child - 1) / 2;
             //如果child为0，说明child已经是根节点了，根节点就没有父节点
@@ -125,7 +125,7 @@
             //2.尾删最后一个元素
             size--;
             //3.从index = 0开始进行一次向下调整
-            shiftDown(array,size,0);
+            siftDown(array,size,0);
             return ret;
         }
         
