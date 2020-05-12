@@ -42,6 +42,6 @@ public void shellSortHelper(int[] array, int gap){
 ```
 
 - shellSort的性能分析：
-    - 时间复杂度：O(N^2)，理论上如果gap选择合理的话可以达到O(N^1.3)
+    - 时间复杂度：O(N^2)，理论上如果gap选择合理的话理论上可以达到O(N^1.3)
     - 空间复杂度：O(1)
     - 稳定性：不稳定
