@@ -38,7 +38,7 @@
             	left++;
         	}
             
-            while(left < right && array[left] >= array[pivot]){
+            while(left < right && array[right] >= array[pivot]){
                 right--;
             }
             
