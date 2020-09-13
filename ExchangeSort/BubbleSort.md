@@ -12,7 +12,7 @@
         public void bubbleSort(int[] array){
             //从前往后遍历的同时，用当前元素与后面的元素做比较，如果当前元素比后面的元素大就交换
             //[0, bound)待排序区间     [bound,array.length)已排序区间
-            for(int bound = array.length - 1; bound >= 0; bound++){
+            for(int bound = array.length - 1; bound >= 0; bound--){
                 for(int cur = 0; cur < bound; cur++){
                     if(array[cur] > array[cur + 1]){
                         int temp = array[cur];
