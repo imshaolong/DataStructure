@@ -38,33 +38,36 @@
             	left++;
         	}
             
-            while(left < right && array[left] >= array[pivot]){
+            while(left < right && array[right] >= array[pivot]){
                 right--;
             }
             
             //交换array[left] 和 array[right]
             //交换前array[left] 比 array[pivot]大同时array[right]比array[pivot]小
-            int temp = array[left];
-            array[left] = array[right];
-            array[right] = temp;
+            if(left < right){
+            	int temp = array[left];
+            	array[left] = array[right];
+            	array[right] = temp;
+            }
+    
             //交换后array[left] 比 array[pivot]小同时array[right]比array[pivot]大
             
-        }//while循环结束的时候left一定是等于right的，此时array[left]即array[right]一定是大于array[pivot]
+        }//while循环结束的时候left一定是等于right的，此时array[left]即array[right]一定是大于等于array[pivot]
         //理由：
-        //1.left++导致left ==right,上次循环结束array[left]和array[right]交换之后array[right]是大于arry[pivot]的
+        //1.left++导致left ==right,上次循环结束array[left]和array[right]交换之后array[right]是大于(如果发生交换的话)等于(如果没有发生交换)arry[pivot]的
         //2.right--导致left == right，本次循环中array[left]一定是大于arry[pivot]的
-        //因此，无论如何while循环结束也即一次partition操作结束的时候array[left]也即array[right]一定是大于array[pivot]的
+        //因此，无论如何while循环结束也即一次partition操作结束的时候array[left]也即array[right]一定是大于等于array[pivot]的
         
         int temp = array[left];
         array[left] = array[pivot];
         array[pivot] = temp;
         
-        return left;//由于left == right，所以return right;也可以
+    return left;//由于left == right，所以return right;也可以
     }
-    ```
-
+```
+    
     - 快速排序的代码：
-
+    
         ```java
         public void quickSort(int[] array){
             quickSortHelper(array, 0, array.length - 1);
